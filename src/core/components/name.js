@@ -70,7 +70,7 @@ module.exports = function name (self) {
         const errMsg = utils.OFFLINE_ERROR
 
         log.error(errMsg)
-        return callback(errcode(errMsg, 'OFFLINE_ERROR'))
+        return callback(errcode(new Error(errMsg), 'OFFLINE_ERROR'))
       }
 
       // TODO: params related logic should be in the core implementation
@@ -134,7 +134,7 @@ module.exports = function name (self) {
         const errMsg = utils.OFFLINE_ERROR
 
         log.error(errMsg)
-        return callback(errcode(errMsg, 'OFFLINE_ERROR'))
+        return callback(errcode(new Error(errMsg), 'OFFLINE_ERROR'))
       }
 
       // TODO: params related logic should be in the core implementation
