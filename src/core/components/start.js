@@ -43,8 +43,9 @@ module.exports = (self) => {
         self._bitswap.start()
         self._blockService.setExchange(self._bitswap)
 
-        self._preload.start()
-        self._mfsPreload.start(cb)
+        cb(null)
+        // self._preload.start()
+        // self._mfsPreload.start(cb)
       }
     ], done)
   })

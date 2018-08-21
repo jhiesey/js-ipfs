@@ -1,8 +1,25 @@
 'use strict'
 
 var IPFS = require('ipfs')
+var DHT = require('libp2p-kad-dht')
 
-const node = new IPFS({ repo: String(Math.random() + Date.now()) })
+const node = new IPFS({
+  repo: String(Math.random() + Date.now()),
+  EXPERIMENTAL: {
+    dht: true
+  },
+  preload: {
+    enabled: false
+  },
+  libp2p: {
+    modules: {
+      dht: DHT
+    },
+    config: {
+      dht: {}
+    }
+  }
+})
 
 node.once('ready', () => console.log('IPFS node is ready'))
 
